@@ -1,6 +1,13 @@
 # Life-Log
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Tauri 2](https://img.shields.io/badge/Tauri-2-FFC131?logo=tauri)](https://tauri.app/)
+[![Svelte 5](https://img.shields.io/badge/Svelte-5-FF3E00?logo=svelte)](https://svelte.dev/)
+[![Status](https://img.shields.io/badge/status-MVP%20%E9%AA%A8%E6%9E%B6-blue)]()
+
 > 把生活变成可查询的数据库。
+
+🔗 GitHub: https://github.com/simaqian/life-log-app
 
 一个 Mac 菜单栏 App：
 - **每小时** 弹一次「你在干嘛？」，支持文字 + 语音输入
