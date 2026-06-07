@@ -1,0 +1,25 @@
+# 前端
+node_modules/
+dist/
+.svelte-kit/
+
+# Tauri / Rust
+src-tauri/target/
+src-tauri/Cargo.lock
+src-tauri/gen/
+
+# 系统/编辑器
+.DS_Store
+*.log
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# App 运行时数据（开发期会落到 OS 默认目录，这里防御一下）
+data/
+
+# 环境变量/敏感配置
+.env
+.env.local
+*.local

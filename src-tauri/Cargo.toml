@@ -1,0 +1,65 @@
+[package]
+name = "life-log"
+version = "0.1.0"
+description = "Personal life database — items, hourly checkins, tasks"
+authors = ["crd"]
+edition = "2021"
+rust-version = "1.75"
+
+[lib]
+name = "life_log_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.0", features = [] }
+
+[dependencies]
+tauri = { version = "2.1", features = ["tray-icon", "macos-private-api"] }
+tauri-plugin-shell = "2.0"
+tauri-plugin-notification = "2.0"
+tauri-plugin-dialog = "2.0"
+tauri-plugin-fs = "2.0"
+tauri-plugin-global-shortcut = "2.0"
+
+# 数据库
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+# 异步运行时
+tokio = { version = "1.42", features = ["full"] }
+
+# 序列化
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# HTTP（调 LLM/STT API）
+reqwest = { version = "0.12", features = ["json", "rustls-tls", "multipart"], default-features = false }
+
+# 时间戳
+chrono = { version = "0.4", features = ["serde"] }
+
+# 异步 trait（LLM/STT 抽象层用）
+async-trait = "0.1"
+
+# 错误处理
+anyhow = "1.0"
+thiserror = "2.0"
+
+# 唯一 ID（生成文件名）
+ulid = "1.1"
+
+# 日志
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# 路径
+dirs = "5.0"
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
